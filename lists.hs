@@ -74,3 +74,9 @@ removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 -- Nested list comprehension
 xxs = [[1, 2, 3], [3, 4, 5], [5, 6, 7]]
 [ [ x | x <- xs, even x ] | xs <- xxs] -- [[2], [4], [6]]
+
+-- Comprehensions can have multiple predicates.
+[x | x <- [10..20], x /= 13, x /= 15, x /= 19] -- [10,11,12,14,16,17,18,20]
+
+-- They can also deal with multiple lists.
+[x+y | x <- [1, 2, 3], y <- [10, 100, 1000]] -- [11,101,1001,12,102,1002,13,103,1003]
